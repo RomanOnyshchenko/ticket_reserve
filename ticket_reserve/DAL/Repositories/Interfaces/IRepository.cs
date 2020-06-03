@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ticket_reserve.DAL.Entities
+namespace ticket_reserve.DAL.Repositories.Interfaces
 {
-    class seller
+    interface IRepository
     {
     }
 }
