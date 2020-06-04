@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ticket_reserve.DAL.Entities
 {
-    class ticket_order
+    public class ticket_order
     {
         public int ticketOrderID { get; set; }
         public List<ticket> tickets { get; set; }

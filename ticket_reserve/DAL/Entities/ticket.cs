@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ticket_reserve.DAL.Entities
 {
-    class ticket
+    public class ticket
     {
         public int ticketID { get; set; }
         public string ticketDate { get; set; }
