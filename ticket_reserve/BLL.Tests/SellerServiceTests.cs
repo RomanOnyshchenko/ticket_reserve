@@ -22,25 +22,19 @@ namespace BLL.Tests
         [Fact]
         public void Ctor_InputNull_ThrowArgumentNullException()
         {
-            // Arrange
             IUnitOfWork nullUnitOfWork = null;
 
-            // Act
-            // Assert
             Assert.Throws<ArgumentNullException>(() => new SellerService(nullUnitOfWork));
         }
 
         [Fact]
         public void GetSellers_UserIsAdmin_ThrowMethodAccessException()
         {
-            // Arrange
             seller Seller = new Owner(1, 1, "Roman", nameof(Owner), "pass");
             SecurityContext.SetSeller(Seller);
             var mockUnitOfWork = new Mock<IUnitOfWork>();
             ISellerService sellerService = new SellerService(mockUnitOfWork.Object);
 
-            // Act
-            // Assert
             Assert.Throws<MethodAccessException>(() => sellerService.GetSellers(0));
         }
 

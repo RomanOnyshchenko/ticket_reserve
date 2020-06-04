@@ -17,7 +17,7 @@ namespace CCL.Security.Identity
         public int SellerID { get; }
         public int TicketID { get; }
         public string Name { get; }
-        public string Login { get; }
+        protected string Login { get; }
         public string Password { get; }
     }
 }
