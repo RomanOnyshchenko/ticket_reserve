@@ -6,7 +6,7 @@ using ticket_reserve.DAL.Repositories.Interfaces;
 
 namespace DAL.Repositories.Interfaces
 {
-    interface IticketRepository
+    public interface IticketRepository
         : IRepository<ticket>
     {
     }
