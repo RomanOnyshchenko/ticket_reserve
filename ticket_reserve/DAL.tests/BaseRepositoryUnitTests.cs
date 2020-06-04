@@ -7,11 +7,18 @@ using Microsoft.EntityFrameworkCore;
 using ticket_reserve.DAL.Entities;
 using ticket_reserve.DAL.Repositories.Interfaces;
 using DAL.EF;
-
+using DAL.Repositories.Impl;
 
 namespace DAL.tests
 {
-
+    class TestClientRepository
+        : BaseRepository<clients>
+    {
+        public TestClientRepository(DbContext context)
+        : base(context)
+        {
+        }
+    }
     public class BaseRepositoryUnitTests
     {
         [Fact]
