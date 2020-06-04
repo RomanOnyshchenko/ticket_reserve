@@ -7,6 +7,7 @@ namespace BLL.Services.Interfaces
 {
     public interface ISellerService
     {
+        
         IEnumerable<sellerDTO> GetSellers(int page);
     }
 }

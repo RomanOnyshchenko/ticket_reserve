@@ -4,7 +4,11 @@ using System.Text;
 
 namespace BLL.DTO
 {
-    class sellerDTO
+    public class sellerDTO
     {
+        public int sellerID { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Address { get; set; }
     }
 }
