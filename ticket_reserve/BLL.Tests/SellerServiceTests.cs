@@ -26,17 +26,18 @@ namespace BLL.Tests
 
             Assert.Throws<ArgumentNullException>(() => new SellerService(nullUnitOfWork));
         }
-
         [Fact]
         public void GetSellers_UserIsAdmin_ThrowMethodAccessException()
         {
-            seller Seller = new Owner(1, 1, "Roman", nameof(Owner), "pass");
+            // Arrange
+            seller Seller = new Admin(1, 1, "test", nameof(Admin), "pass");
             SecurityContext.SetSeller(Seller);
             var mockUnitOfWork = new Mock<IUnitOfWork>();
             ISellerService sellerService = new SellerService(mockUnitOfWork.Object);
-
+            
             Assert.Throws<MethodAccessException>(() => sellerService.GetSellers(0));
         }
+
 
     }
 }

@@ -37,24 +37,24 @@ namespace BLL.Services.Impl
         {
             var seller = SecurityContext.GetSeller();
             var login = seller.GetType();
-            if (login != typeof(Admin)
-                && login != typeof(Owner))
+            if (login != typeof(Owner))
             {
                 throw new MethodAccessException();
             }
             var ticketId = seller.TicketID;
-            var ticket_ordersEntities =
+            var ticketEntities =
                 _database
-                    .orders
-                    .Find(z => z.ticketOrderID == ticketId, pageNumber, pageSize);
-            var mapper = new MapperConfiguration(
-                    cfg => cfg.CreateMap<ticket_order, ticket_orderDTO>()
+                    .tickets
+                    .Find(z => z.ticketID == ticketId, pageNumber, pageSize);
+            var mapper = 
+                new MapperConfiguration(
+                    cfg => cfg.CreateMap<ticket, ticketDTO>()
                     ).CreateMapper();
-            var ticketsOrderDTO =
+            var ticketsDTO =
                 mapper
-                    .Map<IEnumerable<ticket_order>, List<ticket_orderDTO>>(
-                        ticket_ordersEntities);
-            return (IEnumerable<sellerDTO>)ticketsOrderDTO;
+                    .Map<IEnumerable<ticket>, List<ticketDTO>>(
+                        ticketEntities);
+            return (IEnumerable<sellerDTO>)ticketsDTO;
 
 
 
